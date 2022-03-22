@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-input',
@@ -13,4 +13,11 @@ export class InputComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  @ViewChild('input', { static: false }) input:
+    | ElementRef<HTMLInputElement>
+    | undefined;
+  get text(): string {
+    return this.input ? this.input.nativeElement.value : '';
+  }
 }
