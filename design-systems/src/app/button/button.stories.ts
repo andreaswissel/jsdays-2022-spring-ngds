@@ -14,4 +14,15 @@ export const DefaultButton = Template.bind({});
 
 DefaultButton.args = {
   label: 'Submit',
+  bgColor: '#0085FC',
+  fontSize: 13,
+};
+
+DefaultButton.argTypes = {
+  bgColor: {
+    control: 'color',
+  },
+  fontSize: {
+    control: { type: 'range', min: 8, max: 20 },
+  },
 };

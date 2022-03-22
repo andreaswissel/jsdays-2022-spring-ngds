@@ -60,7 +60,7 @@
         },
         {
             "name": "ButtonComponent",
-            "id": "component-ButtonComponent-3a32942f7022cb5433fdfb4907b4311e2b72b564e99a42cdbed1ab663950e72493694ac045dc9d1fcbd342c601c6d023b6a587d72d742ae799c6d940251b3034",
+            "id": "component-ButtonComponent-e56ea5ff3a67680142f3fe4b80febcdcdb4ff16e09012a8b1c9fe278824a48a26d3189958eb3003cc81d195df15e80cd7d09405c45a5879f58223d61e679ad89",
             "file": "src/app/button/button.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -77,6 +77,24 @@
             ],
             "viewProviders": [],
             "inputsClass": [
+                {
+                    "name": "bgColor",
+                    "defaultValue": "'#0085fc'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "fontSize",
+                    "defaultValue": "13",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 11,
+                    "type": "number",
+                    "decorators": []
+                },
                 {
                     "name": "label",
                     "defaultValue": "'Button label'",
@@ -96,7 +114,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 13,
+                    "line": 15,
                     "deprecated": false,
                     "deprecationMessage": ""
                 }
@@ -108,11 +126,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class ButtonComponent implements OnInit {\n  @Input() public label: string = 'Button label';\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.scss'],\n})\nexport class ButtonComponent implements OnInit {\n  @Input() public label: string = 'Button label';\n  @Input() public bgColor: string = '#0085fc';\n  @Input() public fontSize: number = 13;\n\n  constructor() {}\n\n  ngOnInit(): void {}\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "",
+                    "data": "button {\n  background: #0085fc;\n\n  height: 40px;\n\n  border: 1px solid #0357a3;\n  box-sizing: border-box;\n  box-shadow: inset 0px 2px 0px rgba(202, 230, 255, 0.15);\n  border-radius: 5px;\n\n  font-family: \"SF Pro Display\", Helvetica, Arial, sans-serif;\n  font-style: normal;\n  font-weight: 600;\n  font-size: 13px;\n  line-height: 16px;\n  display: flex;\n  align-items: center;\n  text-align: center;\n\n  color: #ffffff;\n\n  padding: 11px 16px;\n}\n",
                     "styleUrl": "./button.component.scss"
                 }
             ],
@@ -123,12 +141,12 @@
                 "deprecated": false,
                 "deprecationMessage": "",
                 "args": [],
-                "line": 9
+                "line": 11
             },
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<button>{{ label }}</button>\n"
+            "templateData": "<button\n  [ngStyle]=\"{ 'background-color': bgColor, 'font-size': fontSize + 'px' }\"\n>\n  {{ label }}\n</button>\n"
         }
     ],
     "modules": [
@@ -243,21 +261,21 @@
                 "name": "environment",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/environments/environment.prod.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "object",
-                "defaultValue": "{\n  production: true\n}"
-            },
-            {
-                "name": "environment",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
                 "file": "src/environments/environment.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "object",
                 "defaultValue": "{\n  production: false\n}"
+            },
+            {
+                "name": "environment",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/environments/environment.prod.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "object",
+                "defaultValue": "{\n  production: true\n}"
             },
             {
                 "name": "require",
@@ -326,18 +344,6 @@
                     "defaultValue": "(args) => ({\n  props: args,\n})"
                 }
             ],
-            "src/environments/environment.prod.ts": [
-                {
-                    "name": "environment",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/environments/environment.prod.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "object",
-                    "defaultValue": "{\n  production: true\n}"
-                }
-            ],
             "src/environments/environment.ts": [
                 {
                     "name": "environment",
@@ -348,6 +354,18 @@
                     "deprecationMessage": "",
                     "type": "object",
                     "defaultValue": "{\n  production: false\n}"
+                }
+            ],
+            "src/environments/environment.prod.ts": [
+                {
+                    "name": "environment",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/environments/environment.prod.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "object",
+                    "defaultValue": "{\n  production: true\n}"
                 }
             ]
         },
@@ -375,7 +393,7 @@
                 "linktype": "component",
                 "name": "ButtonComponent",
                 "coveragePercent": 0,
-                "coverageCount": "0/4",
+                "coverageCount": "0/6",
                 "status": "low"
             },
             {
